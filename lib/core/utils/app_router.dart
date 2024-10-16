@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:msa2o_korah/features/bank/presentation/bank_rounds_screen.dart';
 import 'package:msa2o_korah/features/home/presentation/views/home_screen.dart';
 import 'package:msa2o_korah/features/splash/presentation/views/splash_screen.dart';
 
@@ -12,6 +13,10 @@ abstract class AppRouter {
       GoRoute(
         path: '/home',
         builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        path: '/bankRounds',
+        builder: (context, state) => const BankRoundsScreen(),
       ),
     ],
   );

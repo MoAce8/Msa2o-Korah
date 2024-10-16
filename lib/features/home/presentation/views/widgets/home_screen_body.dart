@@ -15,14 +15,16 @@ class HomeScreenBody extends StatelessWidget {
               'Welcome to',
               style: TextStyle(
                 fontSize: 26,
-                fontWeight: FontWeight.w500
+                fontWeight: FontWeight.w600,
+                color: Colors.black
               ),
             ),
             Text(
               'مساءو كورة',
               style: TextStyle(
                 fontSize: 28,
-                fontWeight: FontWeight.w500
+                fontWeight: FontWeight.w600,
+                color: Colors.black
               ),
             ),
             SizedBox(
