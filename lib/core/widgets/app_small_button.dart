@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class AppButton extends StatelessWidget {
-  const AppButton({
+class AppSmallButton extends StatelessWidget {
+  const AppSmallButton({
     super.key,
-    this.background = Colors.white,
-    this.textColor = Colors.black,
+    this.background,
     this.isUperCase = false,
     required this.text,
     required this.function,
+    this.textColor,
   });
 
-  final Color background;
-  final Color textColor;
+  final Color? background;
+  final Color? textColor;
   final bool isUperCase;
   final String text;
   final VoidCallback function;
@@ -22,19 +22,14 @@ class AppButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: background,
-          padding: const EdgeInsets.all(12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
         ),
         onPressed: function,
         child: Center(
           child: Text(
             isUperCase ? text.toUpperCase() : text,
             style: TextStyle(
-              color: textColor,
-              fontSize: 20,
-              fontWeight: FontWeight.w600
+              color: textColor ?? Colors.white,
+              fontSize: 16,
             ),
           ),
         ),

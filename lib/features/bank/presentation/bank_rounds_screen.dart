@@ -9,7 +9,7 @@ class BankRoundsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bank',),
+        title: const Text('Bank',),
         centerTitle: true,
         backgroundColor: kPrimaryColor,
       ),
