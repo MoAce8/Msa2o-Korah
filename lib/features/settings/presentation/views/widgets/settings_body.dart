@@ -23,7 +23,9 @@ class SettingsBody extends StatelessWidget {
             ),
             AppButton(
               text: 'Add Questions',
-              function: () {},
+              function: () {
+                GoRouter.of(context).push('/addQuestions');
+              },
             ),
             const SizedBox(
               height: 25,

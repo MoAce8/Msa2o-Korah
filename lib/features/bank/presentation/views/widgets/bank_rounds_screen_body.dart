@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:msa2o_korah/core/widgets/app_button.dart';
-import 'package:msa2o_korah/features/bank/presentation/widgets/team_total_score_card.dart';
+import 'package:msa2o_korah/features/bank/presentation/views/widgets/team_total_score_card.dart';
 
 class BankRoundsScreenBody extends StatelessWidget {
   const BankRoundsScreenBody({super.key});

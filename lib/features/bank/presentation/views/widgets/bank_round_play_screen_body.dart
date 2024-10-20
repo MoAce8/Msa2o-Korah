@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:msa2o_korah/features/bank/presentation/widgets/bank_counter.dart';
-import 'package:msa2o_korah/features/bank/presentation/widgets/custom_timer.dart';
-import 'package:msa2o_korah/features/bank/presentation/widgets/answer_buttons.dart';
-import 'package:msa2o_korah/features/bank/presentation/widgets/question_block.dart';
-import 'package:msa2o_korah/features/bank/presentation/widgets/timer_buttons.dart';
+import 'package:msa2o_korah/features/bank/presentation/views/widgets/answer_buttons.dart';
+import 'package:msa2o_korah/features/bank/presentation/views/widgets/bank_counter.dart';
+import 'package:msa2o_korah/features/bank/presentation/views/widgets/custom_timer.dart';
+import 'package:msa2o_korah/features/bank/presentation/views/widgets/question_block.dart';
+import 'package:msa2o_korah/features/bank/presentation/views/widgets/timer_buttons.dart';
 import 'package:timer_count_down/timer_controller.dart';
 
 class BankRoundPlayScreenBody extends StatefulWidget {
