@@ -9,14 +9,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(AssetsData.goats),
             fit: BoxFit.cover,
             opacity: .7,
           ),
         ),
-        child: HomeScreenBody(),
+        child: const HomeScreenBody(),
       ),
     );
   }

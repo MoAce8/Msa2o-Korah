@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:msa2o_korah/constants.dart';
+import 'package:go_router/go_router.dart';
 import 'package:msa2o_korah/features/bank/presentation/widgets/bank_rounds_screen_body.dart';
 
 class BankRoundsScreen extends StatelessWidget {
@@ -9,9 +9,18 @@ class BankRoundsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bank',),
+        title: const Text(
+          'Bank',
+        ),
         centerTitle: true,
-        backgroundColor: kPrimaryColor,
+        actions: [
+          IconButton(
+            onPressed: () {
+              GoRouter.of(context).push('/settings');
+            },
+            icon: const Icon(Icons.settings),
+          ),
+        ],
       ),
       body: const BankRoundsScreenBody(),
     );

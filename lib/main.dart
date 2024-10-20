@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ).copyWith(
           scaffoldBackgroundColor: kPrimaryColor,
+          appBarTheme: const AppBarTheme(backgroundColor: kPrimaryColor),
           textTheme: GoogleFonts.elMessiriTextTheme(
             ThemeData.dark().textTheme,
           )),

@@ -66,6 +66,14 @@ configurations.all {
     }
 }
 
+android {
+
+    defaultConfig {
+
+        minSdkVersion 23
+    }
+}
+
 flutter {
     source = "../.."
 }
