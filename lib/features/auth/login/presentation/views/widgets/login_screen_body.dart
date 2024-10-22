@@ -75,7 +75,6 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
               ),
               AppButton(
                 text: 'Login',
-                background: Theme.of(context).colorScheme.onPrimary,
                 function: () async {
                   if (formKey.currentState!.validate()) {
                     await FirebaseAuth.instance.signOut();

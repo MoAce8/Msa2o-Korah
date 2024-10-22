@@ -19,45 +19,53 @@ class _AddQuestionsScreenBodyState extends State<AddQuestionsScreenBody> {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              'Enter Question',
-              style: TextStyle(fontSize: 20),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            AppTextFormField(
-              label: 'Question',
-              controller: qController,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            const Text(
-              'Enter Answer',
-              style: TextStyle(fontSize: 20),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            AppTextFormField(
-              label: 'Answer',
-              controller: aController,
-            ),
-            const SizedBox(
-              height: 60,
-            ),
-            AppButton(
-              text: 'Add',
-              function: () {},
-            )
-          ],
+        child: Form(
+          key: formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              const Text(
+                'Enter Question',
+                style: TextStyle(fontSize: 20),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              AppTextFormField(
+                label: 'Question',
+                controller: qController,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const Text(
+                'Enter Answer',
+                style: TextStyle(fontSize: 20),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              AppTextFormField(
+                label: 'Answer',
+                controller: aController,
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+              AppButton(
+                text: 'Add',
+                function: () async{
+                  if (formKey.currentState!.validate()) {
+                        qController.clear();
+                        aController.clear();
+                  }
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
