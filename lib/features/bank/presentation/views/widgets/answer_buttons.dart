@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:msa2o_korah/constants.dart';
+import 'package:msa2o_korah/features/bank/presentation/view_models/round_cubit/bank_round_cubit.dart';
 
 class AnswerButtons extends StatelessWidget {
   const AnswerButtons({
@@ -15,7 +16,9 @@ class AnswerButtons extends StatelessWidget {
           width: screenWidth(context) * .44,
           child: ElevatedButton(
             style: buttonStyle(correct: false),
-            onPressed: () {},
+            onPressed: () {
+              BankRoundCubit.get(context).indexIncrease();
+            },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -34,7 +37,9 @@ class AnswerButtons extends StatelessWidget {
           width: screenWidth(context) * .44,
           child: ElevatedButton(
             style: buttonStyle(correct: true),
-            onPressed: () {},
+            onPressed: () {
+              BankRoundCubit.get(context).indexIncrease();
+            },
             child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

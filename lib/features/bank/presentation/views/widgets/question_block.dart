@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:msa2o_korah/features/bank/presentation/view_models/round_cubit/bank_round_cubit.dart';
 
 class QuestionBlock extends StatelessWidget {
@@ -13,38 +14,42 @@ class QuestionBlock extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(10),
       width: double.infinity,
-      child: Column(
-        children: [
-          Text(
-            'السؤال ${BankRoundCubit.get(context).questionIndex}',
-            style: const TextStyle(
-              fontSize: 22,
-            ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Text(
-            BankRoundCubit.get(context)
-                .questions[BankRoundCubit.get(context).roundNumber]
-                .question,
-            textAlign: TextAlign.right,
-            style: const TextStyle(
-              fontSize: 22,
-            ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-           Text(
-             BankRoundCubit.get(context)
-                 .questions[BankRoundCubit.get(context).roundNumber]
-                 .answer,
-            style: const TextStyle(
-              fontSize: 22,
-            ),
-          ),
-        ],
+      child: BlocBuilder<BankRoundCubit, BankRoundState>(
+        builder: (context, state) {
+          return Column(
+            children: [
+              Text(
+                'السؤال ${BankRoundCubit.get(context).questionIndex}',
+                style: const TextStyle(
+                  fontSize: 22,
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Text(
+                BankRoundCubit.get(context)
+                    .questions[BankRoundCubit.get(context).questionIndex]
+                    .question,
+                textAlign: TextAlign.right,
+                style: const TextStyle(
+                  fontSize: 22,
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Text(
+                BankRoundCubit.get(context)
+                    .questions[BankRoundCubit.get(context).questionIndex]
+                    .answer,
+                style: const TextStyle(
+                  fontSize: 22,
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
