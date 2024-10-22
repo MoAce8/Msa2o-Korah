@@ -47,7 +47,13 @@ class BankRoundsScreenBody extends StatelessWidget {
             text: 'Round 2',
             function: () {
               if (BankQuestionsCubit.get(context).questions.length >= 72) {
-                GoRouter.of(context).push('/bankRoundPlay');
+                GoRouter.of(context).push(
+                  '/bankRoundPlay',
+                  extra: RoundModel.startRound(
+                    roundNum: 2,
+                    questions: BankQuestionsCubit.get(context).questions,
+                  ),
+                );
               } else {
                 showLimitDialog(context);
               }
@@ -57,7 +63,13 @@ class BankRoundsScreenBody extends StatelessWidget {
             text: 'Round 3',
             function: () {
               if (BankQuestionsCubit.get(context).questions.length >= 72) {
-                GoRouter.of(context).push('/bankRoundPlay');
+                GoRouter.of(context).push(
+                  '/bankRoundPlay',
+                  extra: RoundModel.startRound(
+                    roundNum: 3,
+                    questions: BankQuestionsCubit.get(context).questions,
+                  ),
+                );
               } else {
                 showLimitDialog(context);
               }
@@ -67,7 +79,13 @@ class BankRoundsScreenBody extends StatelessWidget {
             text: 'Round 4',
             function: () {
               if (BankQuestionsCubit.get(context).questions.length >= 72) {
-                GoRouter.of(context).push('/bankRoundPlay');
+                GoRouter.of(context).push(
+                  '/bankRoundPlay',
+                  extra: RoundModel.startRound(
+                    roundNum: 4,
+                    questions: BankQuestionsCubit.get(context).questions,
+                  ),
+                );
               } else {
                 showLimitDialog(context);
               }
@@ -77,7 +95,13 @@ class BankRoundsScreenBody extends StatelessWidget {
             text: 'Round 5',
             function: () {
               if (BankQuestionsCubit.get(context).questions.length >= 72) {
-                GoRouter.of(context).push('/bankRoundPlay');
+                GoRouter.of(context).push(
+                  '/bankRoundPlay',
+                  extra: RoundModel.startRound(
+                    roundNum: 5,
+                    questions: BankQuestionsCubit.get(context).questions,
+                  ),
+                );
               } else {
                 showLimitDialog(context);
               }
@@ -87,7 +111,13 @@ class BankRoundsScreenBody extends StatelessWidget {
             text: 'Round 6',
             function: () {
               if (BankQuestionsCubit.get(context).questions.length >= 72) {
-                GoRouter.of(context).push('/bankRoundPlay');
+                GoRouter.of(context).push(
+                  '/bankRoundPlay',
+                  extra: RoundModel.startRound(
+                    roundNum: 6,
+                    questions: BankQuestionsCubit.get(context).questions,
+                  ),
+                );
               } else {
                 showLimitDialog(context);
               }

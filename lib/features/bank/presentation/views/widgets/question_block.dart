@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:msa2o_korah/features/bank/presentation/view_models/round_cubit/bank_round_cubit.dart';
 
 class QuestionBlock extends StatelessWidget {
   const QuestionBlock({super.key});
@@ -12,30 +13,34 @@ class QuestionBlock extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(10),
       width: double.infinity,
-      child: const Column(
+      child: Column(
         children: [
           Text(
-            'السؤال 1',
-            style: TextStyle(
+            'السؤال ${BankRoundCubit.get(context).questionIndex}',
+            style: const TextStyle(
               fontSize: 22,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Text(
-            'السؤال السؤال السؤال السؤال السؤال السؤال',
+            BankRoundCubit.get(context)
+                .questions[BankRoundCubit.get(context).roundNumber]
+                .question,
             textAlign: TextAlign.right,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 22,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          Text(
-            'السؤال السؤال',
-            style: TextStyle(
+           Text(
+             BankRoundCubit.get(context)
+                 .questions[BankRoundCubit.get(context).roundNumber]
+                 .answer,
+            style: const TextStyle(
               fontSize: 22,
             ),
           ),

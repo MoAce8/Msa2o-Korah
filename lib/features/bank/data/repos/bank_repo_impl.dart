@@ -35,7 +35,7 @@ class BankRepoImpl extends BankRepo {
         .map(
           (e) => BankQuestionModel.fromJson(e.data()),
         )
-        .toList();
+        .toList()..shuffle();
 
     return questions;
   }
