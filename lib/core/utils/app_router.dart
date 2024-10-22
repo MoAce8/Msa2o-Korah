@@ -1,10 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:msa2o_korah/core/utils/service_locator.dart';
 import 'package:msa2o_korah/features/auth/login/presentation/view_models/login_cubit/login_cubit.dart';
 import 'package:msa2o_korah/features/auth/login/presentation/views/login_screen.dart';
-import 'package:msa2o_korah/features/bank/data/repos/bank_repo_impl.dart';
-import 'package:msa2o_korah/features/bank/presentation/view_models/questions_cubit/questions_cubit.dart';
+import 'package:msa2o_korah/features/bank/data/models/round_model.dart';
 import 'package:msa2o_korah/features/bank/presentation/views/bank_round_play_screen.dart';
 import 'package:msa2o_korah/features/bank/presentation/views/bank_rounds_screen.dart';
 import 'package:msa2o_korah/features/home/presentation/views/home_screen.dart';
@@ -25,15 +23,13 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: '/bankRounds',
-        builder: (context, state) =>
-            BlocProvider(
-              create: (context) => BankQuestionsCubit(getIt.get<BankRepoImpl>()),
-              child: const BankRoundsScreen(),
-            ),
+        builder: (context, state) => const BankRoundsScreen(),
       ),
       GoRoute(
         path: '/bankRoundPlay',
-        builder: (context, state) => const BankRoundPlayScreen(),
+        builder: (context, state) => BankRoundPlayScreen(
+          roundModel: state.extra as RoundModel,
+        ),
       ),
       GoRoute(
         path: '/settings',
@@ -41,11 +37,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: '/login',
-        builder: (context, state) =>
-            BlocProvider(
-              create: (context) => LoginCubit(),
-              child: const LoginScreen(),
-            ),
+        builder: (context, state) => BlocProvider(
+          create: (context) => LoginCubit(),
+          child: const LoginScreen(),
+        ),
       ),
       GoRoute(
         path: '/addQuestions',

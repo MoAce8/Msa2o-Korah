@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:msa2o_korah/core/utils/functions.dart';
 import 'package:msa2o_korah/core/widgets/app_button.dart';
+import 'package:msa2o_korah/features/bank/presentation/view_models/questions_cubit/questions_cubit.dart';
 
 class SettingsBody extends StatelessWidget {
   const SettingsBody({super.key});
@@ -30,9 +33,22 @@ class SettingsBody extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            AppButton(
-              text: 'Load Questions',
-              function: () {},
+            BlocListener<BankQuestionsCubit, BankQuestionsState>(
+              listener: (context, state) {
+                if (state is BankQuestionsLoaded) {
+                  showCustomDialog(
+                    context,
+                    title: 'Questions loaded',
+                    content: 'الاسئلة جاهزة تقدر تلعب دلوقتي',
+                  );
+                }
+              },
+              child: AppButton(
+                text: 'Load Questions',
+                function: () {
+                  BankQuestionsCubit.get(context).loadQuestion();
+                },
+              ),
             ),
           ],
         ),

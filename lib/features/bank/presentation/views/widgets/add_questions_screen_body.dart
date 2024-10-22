@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:msa2o_korah/core/utils/functions.dart';
 import 'package:msa2o_korah/core/widgets/app_button.dart';
 import 'package:msa2o_korah/core/widgets/custom_text_form_field.dart';
+import 'package:msa2o_korah/features/bank/presentation/view_models/questions_cubit/questions_cubit.dart';
 
 class AddQuestionsScreenBody extends StatefulWidget {
   const AddQuestionsScreenBody({super.key});
@@ -55,14 +58,25 @@ class _AddQuestionsScreenBodyState extends State<AddQuestionsScreenBody> {
               const SizedBox(
                 height: 60,
               ),
-              AppButton(
-                text: 'Add',
-                function: () async{
-                  if (formKey.currentState!.validate()) {
-                        qController.clear();
-                        aController.clear();
+              BlocListener<BankQuestionsCubit, BankQuestionsState>(
+                listener: (context, state) {
+                  if (state is BankQuestionsUploaded) {
+                    qController.clear();
+                    aController.clear();
+                    showSnackBar(context, 'Message uploaded');
                   }
                 },
+                child: AppButton(
+                  text: 'Add',
+                  function: () async {
+                    if (formKey.currentState!.validate()) {
+                      BankQuestionsCubit.get(context).uploadQuestion(
+                        question: qController.text,
+                        answer: aController.text,
+                      );
+                    }
+                  },
+                ),
               )
             ],
           ),
