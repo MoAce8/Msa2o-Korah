@@ -36,12 +36,14 @@ class ScoreCubit extends Cubit<ScoreState> {
     emit(ScoreBanked());
   }
 
-  addRoundScore({required int teamNum}) {
-    if(teamNum == 1){
+  addRoundScore({required int roundNum}) {
+
+    if (roundNum % 2 != 0) {
       teamOneScore += bankValue;
-    }else{
+    } else {
       teamTwoScore += bankValue;
     }
+
     bankValue = 0;
     counterValue = 0;
     emit(ScoreAdded());

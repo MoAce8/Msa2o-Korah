@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:msa2o_korah/core/utils/functions.dart';
 import 'package:msa2o_korah/core/widgets/app_button.dart';
 import 'package:msa2o_korah/features/bank/data/models/round_model.dart';
 import 'package:msa2o_korah/features/bank/presentation/view_models/questions_cubit/questions_cubit.dart';
+import 'package:msa2o_korah/features/bank/presentation/view_models/score_cubit/score_cubit.dart';
 import 'package:msa2o_korah/features/bank/presentation/views/widgets/team_total_score_card.dart';
 
 class BankRoundsScreenBody extends StatelessWidget {
@@ -16,16 +18,22 @@ class BankRoundsScreenBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TeamTotalScoreCard(
-                text: 'Team 1 bank: 12',
-              ),
-              TeamTotalScoreCard(
-                text: 'Team 2 bank: 8',
-              ),
-            ],
+          BlocBuilder<ScoreCubit, ScoreState>(
+            builder: (context, state) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TeamTotalScoreCard(
+                    text:
+                        'Team 1 bank: ${ScoreCubit.get(context).teamOneScore}',
+                  ),
+                  TeamTotalScoreCard(
+                    text:
+                        'Team 2 bank: ${ScoreCubit.get(context).teamTwoScore}',
+                  ),
+                ],
+              );
+            },
           ),
           AppButton(
             text: 'Round 1',

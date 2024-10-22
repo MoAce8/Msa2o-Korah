@@ -7,6 +7,7 @@ import 'package:msa2o_korah/core/utils/app_router.dart';
 import 'package:msa2o_korah/core/utils/service_locator.dart';
 import 'package:msa2o_korah/features/bank/data/repos/bank_repo_impl.dart';
 import 'package:msa2o_korah/features/bank/presentation/view_models/questions_cubit/questions_cubit.dart';
+import 'package:msa2o_korah/features/bank/presentation/view_models/score_cubit/score_cubit.dart';
 import 'package:msa2o_korah/firebase_options.dart';
 
 void main() async {
@@ -24,8 +25,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BankQuestionsCubit(getIt.get<BankRepoImpl>()),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => BankQuestionsCubit(getIt.get<BankRepoImpl>()),
+        ),
+        BlocProvider(
+          create: (context) => ScoreCubit(),
+        ),
+      ],
       child: MaterialApp.router(
         title: 'Msa2o Korah',
         debugShowCheckedModeBanner: false,
@@ -35,7 +43,9 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: kPrimaryColor,
             appBarTheme: const AppBarTheme(backgroundColor: kPrimaryColor),
             textTheme: GoogleFonts.elMessiriTextTheme(
-              ThemeData.dark().textTheme,
+              ThemeData
+                  .dark()
+                  .textTheme,
             )),
         routerConfig: AppRouter.router,
       ),
