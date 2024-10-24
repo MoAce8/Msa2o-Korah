@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:msa2o_korah/core/widgets/app_button.dart';
 import 'package:msa2o_korah/core/widgets/app_logo.dart';
 import 'package:msa2o_korah/core/widgets/custom_text_form_field.dart';
@@ -77,13 +76,15 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
                 text: 'Login',
                 function: () async {
                   if (formKey.currentState!.validate()) {
-                    await FirebaseAuth.instance.signOut();
+                    if (FirebaseAuth.instance.currentUser != null) {
+                      await FirebaseAuth.instance.signOut();
+                    }
                     LoginCubit.get(context)
                         .loginUser(
                             email: emailController.text,
                             password: passwordController.text)
                         .then(
-                          (value) => GoRouter.of(context).go('/home'),
+                          (value) => Navigator.pop(context),
                         );
                   }
                 },
