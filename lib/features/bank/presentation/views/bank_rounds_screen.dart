@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:msa2o_korah/features/bank/presentation/view_models/score_cubit/score_cubit.dart';
 import 'package:msa2o_korah/features/bank/presentation/views/widgets/bank_rounds_screen_body.dart';
 
 class BankRoundsScreen extends StatelessWidget {
@@ -22,7 +23,12 @@ class BankRoundsScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const BankRoundsScreenBody(),
+      body: PopScope(
+        child: const BankRoundsScreenBody(),
+        onPopInvoked: (didPop) {
+          ScoreCubit.get(context).teamsReset();
+        },
+      ),
     );
   }
 }

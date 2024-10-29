@@ -48,4 +48,10 @@ class ScoreCubit extends Cubit<ScoreState> {
     counterValue = 0;
     emit(ScoreAdded());
   }
+
+  teamsReset(){
+    teamOneScore = 0;
+    teamTwoScore = 0;
+    emit(ScoreReset());
+  }
 }

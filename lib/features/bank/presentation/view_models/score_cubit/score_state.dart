@@ -12,3 +12,5 @@ class ScoreCounterReset extends ScoreState {}
 class ScoreBanked extends ScoreState {}
 
 class ScoreAdded extends ScoreState {}
+
+class ScoreReset extends ScoreState {}

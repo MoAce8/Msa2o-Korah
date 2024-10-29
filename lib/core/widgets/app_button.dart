@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class AppButton extends StatelessWidget {
   const AppButton({
     super.key,
-    this.background = Colors.white,
+    this.background,
     this.textColor = Colors.black,
     this.isUperCase = false,
     required this.text,
     required this.function,
   });
 
-  final Color background;
+  final Color? background;
   final Color textColor;
   final bool isUperCase;
   final String text;
@@ -21,7 +21,7 @@ class AppButton extends StatelessWidget {
     return Center(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: background,
+          backgroundColor: background ?? Colors.white,
           padding: const EdgeInsets.all(12),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
