@@ -7,6 +7,7 @@ class QuestionBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(BankRoundCubit.get(context).questions.length);
     return Container(
       decoration: BoxDecoration(
         color: Colors.black,
@@ -22,6 +23,7 @@ class QuestionBlock extends StatelessWidget {
                 'السؤال ${BankRoundCubit.get(context).questionIndex}',
                 style: const TextStyle(
                   fontSize: 22,
+                  color: Colors.grey
                 ),
               ),
               const SizedBox(
@@ -29,7 +31,7 @@ class QuestionBlock extends StatelessWidget {
               ),
               Text(
                 BankRoundCubit.get(context)
-                    .questions[BankRoundCubit.get(context).questionIndex]
+                    .questions[BankRoundCubit.get(context).questionIndex-1]
                     .question,
                 textAlign: TextAlign.right,
                 style: const TextStyle(
@@ -41,10 +43,11 @@ class QuestionBlock extends StatelessWidget {
               ),
               Text(
                 BankRoundCubit.get(context)
-                    .questions[BankRoundCubit.get(context).questionIndex]
+                    .questions[BankRoundCubit.get(context).questionIndex-1]
                     .answer,
                 style: const TextStyle(
                   fontSize: 22,
+                  color: Colors.lightGreen
                 ),
               ),
             ],

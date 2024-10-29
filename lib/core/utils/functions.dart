@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:msa2o_korah/features/bank/presentation/view_models/questions_cubit/questions_cubit.dart';
 
 void showCustomDialog(
   BuildContext context, {
@@ -41,4 +42,12 @@ void showSnackBar(
       content: Text(message),
     ),
   );
+}
+
+showLimitDialog(context) {
+  showCustomDialog(context,
+      title: 'Not enough questions',
+      content: 'you need at least 72 questions and you only have '
+          '${BankQuestionsCubit.get(context).questions.length} '
+          'go and add more');
 }

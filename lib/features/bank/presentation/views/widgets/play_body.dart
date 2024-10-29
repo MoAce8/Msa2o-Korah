@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:msa2o_korah/features/bank/presentation/views/widgets/answer_buttons.dart';
-import 'package:msa2o_korah/features/bank/presentation/views/widgets/bank_counter.dart';
 import 'package:msa2o_korah/features/bank/presentation/views/widgets/question_block.dart';
 
 class PlayBody extends StatelessWidget {
@@ -15,10 +14,6 @@ class PlayBody extends StatelessWidget {
           height: 30,
         ),
         AnswerButtons(),
-        SizedBox(
-          height: 25,
-        ),
-        BankCounter(),
       ],
     );
   }
